@@ -1,0 +1,119 @@
+<header class="mb-5">
+  {% load static %}
+  <style>
+  ul.sidenav.sidenav-fixed li a {
+    font-size: 15px;
+}
+.text-white{
+  color:white !important;
+}
+  </style>
+    <div class="container">
+    <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a></div>
+    <ul id="nav-mobile" class="sidenav sidenav-fixed">
+      <li class="mx-auto bg-primary1 py-4 d-flex justify-content-center border"><a id="logo-container" href="/" class="brand-logo">
+        <img id="front-page-logo"  class="mt-3" src="{% static 'images/logo.png'%}" alt="">
+       </a></li>
+       {% if request.user.is_authenticated %}
+         {% if request.path == "/" %}
+         <li class="bold teal lighten-2"><a class="active waves-effect waves-teal text-white" href="{% url 'users:account' %}">My Account</a></li>
+         {% else %}
+         <li class="bold"><a class="waves-effect waves-teal" href="{% url 'users:account' %}">My Account</a></li>
+         {% endif %}
+       
+         {% if "profile" in request.path %}
+         <li class="bold teal lighten-2"><a class="active waves-effect waves-teal text-white" href="{% url 'users:profile' %}">Google places api</a></li>
+         {% else %}
+         <li class="bold"><a class="waves-effect waves-teal" href="{% url 'users:profile' %}">Google places api</a></li>
+         {% endif %}
+       
+         {% if "route" in request.path %}
+         <li class="bold teal lighten-2"><a class="active waves-effect waves-teal text-white" href="{% url 'main:route' %}">Directions and distance matrix api</a></li>
+         {% else %}
+         <li class="bold"><a class="waves-effect waves-teal" href="{% url 'main:route' %}">Directions and distance matrix api</a></li>
+         {% endif %}
+       
+         {% if "map" in request.path %}
+         <li class="bold teal lighten-2"><aclass="active waves-effect waves-teal text-white" href="{% url 'main:map' %}">Maps and geocoding</a></li>
+         {% else %}
+         <li class="bold"><a class="waves-effect waves-teal" href="{% url 'main:map' %}">Maps and geocoding (directions first)</a></li>
+         {% endif %}
+       
+         {% if "sign-out" in request.path %}
+         <li class="bold teal lighten-2"><a class="active waves-effect waves-teal text-white" href="{% url 'users:sign-out' %}">Sign Out</a></li>
+         {% else %}
+         <li class="bold"><a class="waves-effect waves-teal" href="{% url 'users:sign-out' %}">Sign Out</a></li>
+         {% endif %}
+         
+      
+
+       {% else %}
+         {% if "sign-in" in request.path %}
+         <li class="bold teal lighten-2 "><a class="waves-effect waves-teal text-white" href="{% url 'users:sign-in' %}">Log In</a></li>
+         {% else %}
+         <li class="bold"><a class="active waves-effect waves-teal" href="{% url 'users:sign-in' %}">Click to log In</a></li>
+         {% endif %}
+         
+         {% if "sign-up" in request.path %}
+         <li class="bold teal lighten-2 "><a class="waves-effect waves-teal text-white" href="{% url 'users:sign-up' %}">Sign Up</a></li>
+         {% else %}
+         <li class="bold"><a class="waves-effect waves-teal" href="{% url 'users:sign-up' %}">Click to Sign Up</a></li>
+         {% endif %}
+      
+       {% endif %}
+      {% comment %} <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li class="bold"><a class="collapsible-header waves-effect waves-teal">CSS</a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="color.html">Color</a></li>
+                <li><a href="grid.html">Grid</a></li>
+                <li><a href="helpers.html">Helpers</a></li>
+                <li><a href="media-css.html">Media</a></li>
+                <li><a href="pulse.html">Pulse</a></li>
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="shadow.html">Shadow</a></li>
+                <li><a href="table.html">Table</a></li>
+                <li><a href="css-transitions.html">Transitions</a></li>
+                <li><a href="typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="bold"><a class="collapsible-header waves-effect waves-teal">Components</a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="badges.html">Badges</a></li>
+                <li><a href="buttons.html">Buttons</a></li>
+                <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
+                <li><a href="cards.html">Cards</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="floating-action-button.html">Floating Action Button</a></li>
+                <li><a href="footer.html">Footer</a></li>
+                <li><a href="icons.html">Icons</a></li>
+                <li><a href="navbar.html">Navbar</a></li>
+                <li><a href="pagination.html">Pagination</a></li>
+                <li><a href="preloader.html">Preloader</a></li>
+              </ul>
+            </div>
+          </li>
+       
+          <li class="bold"><a class="collapsible-header waves-effect waves-teal">Forms</a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="autocomplete.html">Autocomplete</a></li>
+                <li><a href="checkboxes.html">Checkboxes</a></li>
+                <li><a href="chips.html">Chips</a></li>
+                <li><a href="pickers.html">Pickers</a></li>
+                <li><a href="radio-buttons.html">Radio Buttons</a></li>
+                <li><a href="range.html">Range</a></li>
+                <li><a href="select.html">Select</a></li>
+                <li><a href="switches.html">Switches</a></li>
+                <li><a href="text-inputs.html">Text Inputs</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li> {% endcomment %}
+
+    </ul>
+  </header>

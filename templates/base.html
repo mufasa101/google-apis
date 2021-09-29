@@ -1,0 +1,45 @@
+{% load static %}
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="{% static  'css/main.css' %}" rel="stylesheet "> -->
+    <link href="{% static  'css/custom_materialize.css' %}" rel="stylesheet ">
+    <!-- https://cdnjs.com/libraries/toastr.js/latest -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <main>
+        <div class="container pb-4 mb-5">
+            {% include 'partials/_navbar.html' %}
+            <nav class="top-nav mb-5 ">
+                <div class="col s12 m10 offset-m1">
+                    <h1 class="page-header mb-3 text-center">{% block title %} Hello {% endblock title %}</h1>
+                </div>
+            </nav>
+            {% block page %}
+
+            {% endblock page %}
+
+        </div>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{%static 'js/init.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/materialize.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        {% block extend_footer %}
+
+  {% endblock %}
+    <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
+</body>
+
+</html>

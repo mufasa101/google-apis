@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+{% block title %} Sign up {% endblock title %}
+{% block page %}
+<script src='https://www.google.com/recaptcha/api.js?render={{recaptcha_site_key}}'></script>
+
+{% comment %} <h3>Django Google API Course - Sign Up</h3> {% endcomment %}
+
+<div class="container">
+  <form id="signupform" method="POST" action="/sign-up">
+    {% csrf_token %}    
+    <label for="first_name">First Name</label>
+    {{form.first_name}}
+    <label for="last_name">Last Name</label>
+    {{form.last_name}}
+    <label for="username">Username</label>
+    {{form.username}}
+    <label for="password1">Password</label>
+    {{form.password1}}
+    <label for="password2">Confirm Password</label>
+    {{form.password2}}
+    {{form.token}}
+  <p>
+      <label>
+        <input type="checkbox" class="filled-in"  onclick="showPword()" />
+        <span>Show Passwords</span>
+      </label>
+    </p>
+
+   
+
+    <button type="submit" class="btn btn-success px-5 py-3">Sign up</button>
+
+  </form>
+</div>
+
+
+</div>
+
+<script type="text/javascript">
+  // Create a variable that can be used in main.js
+  var recaptcha_site_key = '{{recaptcha_site_key|safe}}'
+</script>
+{% endblock page %}
